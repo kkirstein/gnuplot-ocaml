@@ -7,12 +7,13 @@ dev-repo: "https://bitbucket.org/ogu/gnuplot-ocaml.git"
 license: "LGPL-2.1+ with OCaml linking exception"
 version: "0.5.3"
 build: [
-  ["jbuilder" "build" "-p" name "-j" jobs]
+  ["dune" "subst"] {pinned}
+  ["dune" "build" "-p" name "-j" jobs]
 ]
 depends: [
   "core"
   "conf-gnuplot"
-  "jbuilder" {build & >= "1.0+beta2"}
+  "dune" {build}
 ]
 available: [ ocaml-version >= "4.03.0" ]
 descr: "
